@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\PDFController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ConferencesController;
-
+use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,64 +17,35 @@ use App\Http\Controllers\ConferencesController;
 |
 */
 
-Route::get('/unavailable', 'App\Http\Controllers\PagesController@unavailable');
+Route::get('/conf_create', [ConferencesController::class, 'conf_create'])->name('image.upload');
+Route::post('/conf_create', [ConferencesController::class, 'imageUploadPost'])->name('image.upload.post');
+Route::get('/users_conferences', [ConferencesController::class, 'users_conferences']);
+Route::get('/conf_create', [ConferencesController::class, 'conf_create']);
 
-
-
-Route::get('/terms', 'App\Http\Controllers\PagesController@terms');
-
-Route::get('/about', 'App\Http\Controllers\PagesController@about');
-
-Route::get('/', 'App\Http\Controllers\PagesController@index')->name('index');
-
-Route::get('/conf_covid', 'App\Http\Controllers\PagesController@covid');
-
-Route::get('/conf_web', 'App\Http\Controllers\PagesController@web');
-
-Route::get('/conf_stay', 'App\Http\Controllers\PagesController@stay');
-
-Route::get('/conf_viol', 'App\Http\Controllers\PagesController@viol');
-
-Route::get('/conf_dpsc', 'App\Http\Controllers\PagesController@dpsc');
-
-Route::get('/conf_conversa', 'App\Http\Controllers\PagesController@conversa');
-
-Route::get('/logout', 'App\Http\Controllers\PagesController@logout');
-
-Route::get('/conf', 'App\Http\Controllers\PagesController@conf');
+Route::get('/unavailable', [PagesController::class, 'unavailable']);
+Route::get('/terms', [PagesController::class, 'terms']);
+Route::get('/about', [PagesController::class, 'about']);
+Route::get('/', [PagesController::class, 'index'])->name('index');
+Route::get('/conf_covid', [PagesController::class, 'covid']);
+Route::get('/conf_web', [PagesController::class, 'web']);
+Route::get('/conf_stay', [PagesController::class, 'stay']);
+Route::get('/conf_viol', [PagesController::class, 'viol']);
+Route::get('/conf_dpsc', [PagesController::class, 'dpsc']);
+Route::get('/conf_conversa', [PagesController::class, 'conversa']);
+Route::get('/logout', [PagesController::class, 'logout']);
+Route::get('/conf', [PagesController::class, 'conf']);
 
 Route::get('send-email-pdf', [PDFController::class, 'index']);
 
-Route::view('/conf_create', 'conf/conf_create');
-
-Route::get('conf_create', [ConferencesController::class, 'imageUpload'])->name('image.upload');
-
-Route::post('conf_create', [ConferencesController::class, 'imageUploadPost'])->name('image.upload.post');
-
-Route::get('/users_conferences', 'App\Http\Controllers\ConferencesController@users_conferences');
-
-Route::get('/usersEdit', 'UsersController@edit');
-
-Route::get('/admin_conferences', 'App\Http\Controllers\UsersController@admin_conferences');
-
-Route::get('/admin', 'App\Http\Controllers\UsersController@admin')->name('admin');
+Route::get('/admin', [UsersController::class, 'admin'])->name('admin');
+Route::get('/admin_conferences', [UsersController::class, 'admin_conferences']);
+Route::get('/profile/{id}', [UsersController::class, 'show']);
+Route::get('/updateUser/{id}', [UsersController::class, 'updateUser']);
+Route::get('/updateAdmin/{id}', [UsersController::class, 'updateAdmin']);
+Route::get('/admin/{id}', [UsersController::class, 'destroy']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-//Route::get('/admin/{id}', function () {
-//    return view('admin');
-//})->middleware(['auth']);
-
-//Todos ativos não funciona, só dá para usar um controlador desta forma
-
-Route::get('/profile/{id}', 'App\Http\Controllers\UsersController@show')->name('show');
-
-Route::get('/updateUser/{id}', 'App\Http\Controllers\UsersController@updateUser');
-Route::get('/updateAdmin/{id}', 'App\Http\Controllers\UsersController@updateAdmin');
-Route::get('/admin/{id}', 'App\Http\Controllers\UsersController@destroy');
-
-
 
 require __DIR__ . '/auth.php';

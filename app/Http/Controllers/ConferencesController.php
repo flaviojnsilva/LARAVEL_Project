@@ -89,11 +89,6 @@ class ConferencesController extends Controller
         //
     }
 
-    public function imageUpload()
-    {
-        return view('conf.conf_create');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -122,8 +117,13 @@ class ConferencesController extends Controller
 
     public function users_conferences()
     {
-        return view('users_conferences', [
+        return view('users.users_conferences', [
             'conferences' => DB::table('conferences')->paginate(1)
         ]);
+    }
+
+    public function conf_create()
+    {
+        return view('conf.conf_create');
     }
 }

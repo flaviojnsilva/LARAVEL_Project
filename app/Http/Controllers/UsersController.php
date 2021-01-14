@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\sendingEmail;
 use App\Models\User;
-use App\Models\conferences;
+use App\Models\Users_Conferences;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App;
 
 class UsersController extends Controller
 {

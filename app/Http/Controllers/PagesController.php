@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Mail\sendingEmail;
-use App\Models\User;
-use Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+
+//use App\Models\User;
+//use Barryvdh\DomPDF\Facade as PDF;
+//use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
@@ -63,7 +64,7 @@ class PagesController extends Controller
 
     public function logout()
     {
-        return view('index');
+        return view('logout');
     }
 
     public function users()
