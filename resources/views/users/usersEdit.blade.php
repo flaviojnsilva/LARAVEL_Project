@@ -1,7 +1,7 @@
-@include('components/head')
-@include('components/nav')
+@include('components.head')
+@include('components.nav')
 
 <body>
 
-@include('components/footer')
+@include('components.footer')
 </body>

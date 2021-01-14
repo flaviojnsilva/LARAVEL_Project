@@ -1,24 +1,12 @@
 @include('components.head')
-
 <body>
 <header>
-    @include('layouts.nav')
+    @include('components.nav')
 </header>
-
 <main>
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
         <div class="row">
             <h2 class="featurette-heading">Detalhes<p></p></h2>
-
-            <p>Consulta abaixo toda a informação relativa à conferência selecionada:</p>
             <h2>DPSC: Digital Privacy and Security Conference 2021</h2>
             <img src="img/dpsc_2021.jpg" alt="COVID-19" width="200" height="200">
             <p><br>A Conferência de Privacidade e Segurança Digital (DPSC2021) foi publicada pela primeira vez em 2018
@@ -51,16 +39,16 @@
             </div>
             &nbsp Universidade Lusófona do Porto (ULP)
         </div>
-
-
-    </div><!-- /.container -->
-
-
-    <!-- FOOTER -->
-    <footer class="container">
-        <p class="float-end"><a href="#">Voltar ao Início</a></p>
-        <p>&copy; André Nogueira & Flávio Silva - Projeto Laboratório Programação </p>
-    </footer>
+        @if(Auth::check())
+            <a href="/unavailable" class="btn btn-outline-secondary" role="button" aria-pressed="true">Inscrever-me</a>
+        @endif
+        @if(Auth::guest())
+            Registe-se na plataforma para poder inscrever-se nesta e noutras conferências!&nbsp
+            <a href="{{ route('register') }}" class="btn btn-dark" role="button" aria-pressed="true">Registar-me</a>
+        @endif
+    </div>
+    </div>
+    @include('components/footer')
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>

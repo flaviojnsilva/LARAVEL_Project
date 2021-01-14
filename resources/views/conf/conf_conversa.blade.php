@@ -1,24 +1,12 @@
 @include('components.head')
-
 <body>
 <header>
-    @include('layouts.nav')
+    @include('components.nav')
 </header>
-
 <main>
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
         <div class="row">
             <h2 class="featurette-heading">Detalhes<p></p></h2>
-
-            <p>Consulta abaixo toda a informação relativa à conferência selecionada:</p>
             <h2>Conversas com História: Ricardo Araújo Pereira</h2>
             <img src="img/conversa_rap.jpg" alt="COVID-19" width="500" height="500">
             <p><br>A historiadora Raquel Varela recebe no dia 3 de Fevereiro, no âmbito do ciclo Conversas com História,
@@ -69,16 +57,15 @@
             </div>
             &nbsp CCB - Centro Cultural de Belém
         </div>
-
-
-    </div><!-- /.container -->
-
-
-    <!-- FOOTER -->
-    <footer class="container">
-        <p class="float-end"><a href="#">Voltar ao Início</a></p>
-        <p>&copy; André Nogueira & Flávio Silva - Projeto Laboratório Programação </p>
-    </footer>
+        @if(Auth::check())
+            <a href="/unavailable" class="btn btn-outline-secondary" role="button" aria-pressed="true">Inscrever-me</a>
+        @endif
+        @if(Auth::guest())
+            Registe-se na plataforma para poder inscrever-se nesta e noutras conferências!&nbsp
+            <a href="{{ route('register') }}" class="btn btn-dark" role="button" aria-pressed="true">Registar-me</a>
+        @endif
+    </div>
+    @include('components/footer')
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
