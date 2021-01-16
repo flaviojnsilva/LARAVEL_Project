@@ -113,9 +113,23 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+
+        $conference = DB::table('users_conferences')->where('user_id', $id)->get();
+
+        $conferenc_id=$conference[0];
+
+        dd($conference);
+
+        $conferenceA = DB::table('conferences')->where('id', $id2)->get();
+
+//        return view('profile', [
+//            'user' => $user,
+//        ]);
+
         return view('profile', [
-            'user' => $user,
+            'conferenceA' => $conferenceA,
         ]);
+
+
     }
 }
