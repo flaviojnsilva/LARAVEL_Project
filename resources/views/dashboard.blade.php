@@ -9,7 +9,8 @@
         <div class="container">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link" href="{{ url('/dashboard') }}" class="nav-link">Informação Básica</a>
-                <a class="nav-link" href="{{ url('/users_conferences') }} " class="nav-link">Conferências</a>
+                <a class="nav-link" href="{{ url('/userConference') }} " class="nav-link">Minhas Conferências</a>
+                <a class="nav-link" href="{{ url('/conferences') }} " class="nav-link">Todas as Conferências</a>
             </div>
             <div class="tab-content ml-1" id="myTabContent">
                 <div class="row">

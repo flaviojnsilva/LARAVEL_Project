@@ -50,6 +50,7 @@
                                     Opções
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="inscricao/{{$conference->id}}">Inscrever-me</a>
                                     <a class="dropdown-item" href="#">Editar Conferência</a>
                                     <a class="dropdown-item" href="#">Ver Inscritos</a>
                                 </div>
@@ -63,7 +64,7 @@
         </div>
     </div>
 @else
-    Sem permissões para ver esta página.
+    Nao tem autorização para ver esta pagina
 @endif
 
 @include('components.footer');

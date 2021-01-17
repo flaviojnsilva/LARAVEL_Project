@@ -39,9 +39,18 @@ Route::get('send-email-pdf', [PDFController::class, 'index']);
 
 Route::get('/admin', [UsersController::class, 'admin'])->name('admin');
 Route::get('/admin_conferences', [UsersController::class, 'admin_conferences']);
-Route::get('/profile/{id}', [UsersController::class, 'show']);
+
+Route::get('/profile/{id}', [UsersController::class, 'showUser']);
+
+Route::get('/userConference', [UsersController::class, 'showConference']);
+Route::get('/conferences', [UsersController::class, 'showConferences']);
+
+
 Route::get('/updateUser/{id}', [UsersController::class, 'updateUser']);
 Route::get('/updateAdmin/{id}', [UsersController::class, 'updateAdmin']);
+
+Route::get('/inscricao/{id} ', [UsersController::class, 'inscricao']);
+
 Route::get('/admin/{id}', [UsersController::class, 'destroy']);
 
 Route::get('/dashboard', function () {

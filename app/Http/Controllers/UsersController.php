@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\sendingEmail;
+use App\Models\conferences;
 use App\Models\User;
 use App\Models\Users_Conferences;
 use Illuminate\Contracts\Foundation\Application;
@@ -11,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App;
@@ -26,6 +28,7 @@ class UsersController extends Controller
     {
 
     }
+
 
     public function admin_conferences()
     {
@@ -43,7 +46,6 @@ class UsersController extends Controller
         ]);
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -57,7 +59,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -69,7 +71,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Response
      */
@@ -103,7 +105,37 @@ class UsersController extends Controller
         return redirect('admin/');
     }
 
-    public function updateUser($id)
+    public function inscricao($id)
+    {
+        $conference = conferences::findOrFail($id);
+
+        $userId = Auth::user()->id;
+        $lotacao = $conference->lotacao;
+        $inscritos = $conference->inscritos;
+
+
+        if ($inscritos < $lotacao) {
+
+            DB::table('users_conferences')->insert([
+                'user_id' => $userId,
+                'conference_id' => $id
+            ]);
+
+            $novo = $inscritos + 1;
+
+            DB::table('conferences')
+                ->where('id', $id)
+                ->update(['inscritos' => $novo]);
+
+        return view('userConference');
+
+    } else {
+           return view('userConference')->with("Lotacao");
+        }
+    }
+
+    public
+    function updateUser($id)
     {
         $users = User::findOrFail($id);
         $users->admin = '0';
@@ -111,25 +143,39 @@ class UsersController extends Controller
         return redirect('/admin');
     }
 
-    public function show($id)
+    public
+    function showUser($id)
     {
-
-        $conference = DB::table('users_conferences')->where('user_id', $id)->get();
-
-        $conferenc_id=$conference[0];
-
-        dd($conference);
-
-        $conferenceA = DB::table('conferences')->where('id', $id2)->get();
-
-//        return view('profile', [
-//            'user' => $user,
-//        ]);
+        $user = User::findOrFail($id);
 
         return view('profile', [
-            'conferenceA' => $conferenceA,
+            'user' => $user,
+        ]);
+    }
+
+    public
+    function showConference()
+    {
+        $userId = Auth::user()->id;
+        $pieces = DB::table('users_conferences')->where('user_id', '=', $userId)->get();
+
+        list ($userId, $conferenceId, $created, $updated) = preg_split("/[\s,]+/", $pieces);
+
+        dd($userId);
+
+
+        return view('userConference', [
+            'conferences' => $conferences
         ]);
 
+    }
 
+    public
+    function showConferences()
+    {
+
+        return view('conferences', [
+            'conferences' => DB::table('conferences')->paginate(5)
+        ]);
     }
 }
