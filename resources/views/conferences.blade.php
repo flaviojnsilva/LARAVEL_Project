@@ -69,9 +69,15 @@
                         <div class="col-md-8 col-6">
                             <td>{{ $conference->data }}</td>
                         </div>
+                        @if($conference->data>now())
                         <a href="inscricao/{{$conference->id}}">
                             <button type="button" class="btn btn-light">Inscrever-me</button>
                         </a>
+                        @else
+                            <a href="inscricao/{{$conference->id}}">
+                                <button type="button" disabled class="btn btn-light">Ja realizada</button>
+                            </a>
+                        @endif
                     </div>
 
                     <hr/>

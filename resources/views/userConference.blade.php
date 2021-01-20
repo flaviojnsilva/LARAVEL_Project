@@ -12,13 +12,13 @@
                 <a class="nav-link" href="{{ url('/userConference') }} " class="nav-link">Minhas Conferências</a>
                 <a class="nav-link" href="{{ url('/conferences') }} " class="nav-link">Todas as Conferências</a>
             </div>
-           {{-- @foreach($conferences as $conference)--}}
+            @foreach($conference as $conference)
                 <div class="row">
                     <div class="col-sm-3 col-md-2 col-5">
                         <label style="font-weight:bold;"><br>Id</label>
                     </div>
                     <div class="col-md-8 col-6"><br>
-                       {{-- <td>{{ $conferences}}</td>--}}
+                        <td>{{ $conference->id}}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -26,7 +26,7 @@
                         <label style="font-weight:bold;">Nome</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{--<td>{{ $conference->name }}</td>--}}
+                        <td>{{ $conference->name }}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -34,7 +34,7 @@
                         <label style="font-weight:bold;">Descrição</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{-- <td width=300 height=100>{{ $conference->descricao }}</td>--}}
+                        <td width=300 height=100>{{ $conference->descricao }}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -42,7 +42,7 @@
                         <label style="font-weight:bold;">Local</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{--<td>{{ $conference->local }}</td>--}}
+                        <td>{{ $conference->local }}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -50,7 +50,7 @@
                         <label style="font-weight:bold;">Lotação</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{--<td>{{ $conference->lotacao }}</td>--}}
+                        <td>{{ $conference->lotacao }}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -58,7 +58,7 @@
                         <label style="font-weight:bold;">Inscritos</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{--<td>{{ $conference->inscritos }}</td>--}}
+                        <td>{{ $conference->inscritos }}</td>
                     </div>
                 </div>
                 <div class="row">
@@ -66,12 +66,12 @@
                         <label style="font-weight:bold;">Data</label>
                     </div>
                     <div class="col-md-8 col-6">
-                        {{-- <td>{{ $conference->data }}</td>--}}
+                        <td>{{ $conference->data }}</td>
                     </div>
                 </div>
 
                 <hr/>
-        {{--@endforeach--}}
-        {{--{{ $conferences->links() }}--}}
+        @endforeach
+        {{--{{ $conference->links() }}--}}
     </x-slot>
 </x-app-layout>

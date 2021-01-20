@@ -19,11 +19,9 @@ class UsersConferences extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
-
             $table->foreign('conference_id')->references('id')->on('conferences')
                 ->onDelete('cascade');
-
-
+            $table->unique(['user_id', 'conference_id'], 'user_conference');
             $table->timestamps();
         });
     }

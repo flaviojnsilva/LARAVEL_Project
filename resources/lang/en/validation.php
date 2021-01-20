@@ -148,5 +148,5 @@ return [
     */
 
     'attributes' => [],
-
+    'message' => 'Sucesso',
 ];

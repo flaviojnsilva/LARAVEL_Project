@@ -108,10 +108,11 @@ class ConferencesController extends Controller
         $conference->data = $request->data;
         $conference->save();
 
+        $conf = DB::table('conferences')->where('name', $conference->name)->value('id');
 
-        $imageName = $conference->name . date('d-m-Y_H_i_s') . '.' . $request->image->extension();
+        $imageName = $conf . '_' . $conference->name . '_' . date('d-m-Y_His') . '.' . $request->image->extension();
 
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('img/upload'), $imageName);
 
         return back();
     }

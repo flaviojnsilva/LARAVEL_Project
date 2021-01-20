@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ $conference->id }}</td>
                         <td>{{ $conference->name }}</td>
-                        <td width=300 height=100>>{{ $conference->descricao }}</td>
+                        <td width=300 height=100>{{ $conference->descricao }}</td>
                         <td>{{ $conference->local }}</td>
                         <td>{{ $conference->lotacao }}</td>
                         <td>{{ $conference->inscritos }}</td>

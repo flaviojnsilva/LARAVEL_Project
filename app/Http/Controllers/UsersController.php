@@ -114,7 +114,7 @@ class UsersController extends Controller
         $inscritos = $conference->inscritos;
 
 
-        if ($inscritos < $lotacao) {
+        if (($inscritos < $lotacao) && ($conference->data > date(today()))) {
 
             DB::table('users_conferences')->insert([
                 'user_id' => $userId,
@@ -127,10 +127,10 @@ class UsersController extends Controller
                 ->where('id', $id)
                 ->update(['inscritos' => $novo]);
 
-        return view('userConference');
+            return view('userConference');
 
-    } else {
-           return view('userConference')->with("Lotacao");
+        } else {
+            return view('userConference');
         }
     }
 
@@ -156,16 +156,17 @@ class UsersController extends Controller
     public
     function showConference()
     {
-        $userId = Auth::user()->id;
-        $pieces = DB::table('users_conferences')->where('user_id', '=', $userId)->get();
-
-        list ($userId, $conferenceId, $created, $updated) = preg_split("/[\s,]+/", $pieces);
-
-        dd($userId);
+        $conference = DB::table('users_conferences')
+            ->join('conferences', function ($join) {
+                $join->on('conferences.id', '=', 'users_conferences.conference_id')
+                    ->where('users_conferences.user_id', '=', Auth::user()->id);
+            })
+            ->select('conferences.*')
+            ->get();
 
 
         return view('userConference', [
-            'conferences' => $conferences
+            'conference' => $conference
         ]);
 
     }
