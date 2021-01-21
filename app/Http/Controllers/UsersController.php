@@ -131,7 +131,7 @@ class UsersController extends Controller
 
             return view('dashboard');
 
-        } else if ($true == '1') {
+        } else {
             return view('dashboard');
         }
     }
