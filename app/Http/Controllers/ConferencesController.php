@@ -114,7 +114,7 @@ class ConferencesController extends Controller
 
         $request->image->move(public_path('img/upload'), $imageName);
 
-        return back()->with('message', 'Conferência criada com sucesso!');;
+        return back()->with('message', 'Conferência criada com sucesso');
     }
 
     public function users_conferences()

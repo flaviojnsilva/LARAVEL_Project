@@ -107,14 +107,22 @@ class UsersController extends Controller
 
     public function inscricao($id)
     {
+        //b
         $conference = conferences::findOrFail($id);
 
         $userId = Auth::user()->id;
+
         $lotacao = $conference->lotacao;
+
         $inscritos = $conference->inscritos;
 
 
-        if (($inscritos < $lotacao) && ($conference->data > date(today()))) {
+        $true = DB::table('users_conferences')
+            ->where('user_id', '=', $userId)
+            ->where('conference_id', '=', $id)->count();
+
+
+        if ($inscritos < $lotacao) {
 
             DB::table('users_conferences')->insert([
                 'user_id' => $userId,
@@ -129,7 +137,7 @@ class UsersController extends Controller
 
             return view('dashboard');
 
-        } else {
+        } else if ($true == '1') {
             return view('dashboard');
         }
     }
