@@ -6,8 +6,14 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
 
+        @if(session('message'))
+            <div class="alert alert-primary" role="alert">
+                {{session('message')}} <a href="{{ url('/admin_conferences') }}" class="alert-link">Verifique todas as conferencias</a>
+            </div>
+        @endif
         <div class="container">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
                 <a class="nav-link" href="{{ url('/dashboard') }}" class="nav-link">Informação Básica</a>
                 <a class="nav-link" href="{{ url('/userConference') }} " class="nav-link">Minhas Conferências</a>
                 <a class="nav-link" href="{{ url('/conferences') }} " class="nav-link">Todas as Conferências</a>
