@@ -116,12 +116,6 @@ class UsersController extends Controller
 
         $inscritos = $conference->inscritos;
 
-
-        $true = DB::table('users_conferences')
-            ->where('user_id', '=', $userId)
-            ->where('conference_id', '=', $id)->count();
-
-
         if ($inscritos < $lotacao) {
 
             DB::table('users_conferences')->insert([
@@ -137,7 +131,7 @@ class UsersController extends Controller
 
             return view('dashboard');
 
-        } else if ($true == '1') {
+        } else {
             return view('dashboard');
         }
     }
