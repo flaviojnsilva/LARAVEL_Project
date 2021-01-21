@@ -127,10 +127,10 @@ class UsersController extends Controller
                 ->where('id', $id)
                 ->update(['inscritos' => $novo]);
 
-            return view('userConference');
+            return view('dashboard');
 
         } else {
-            return view('userConference');
+            return view('dashboard');
         }
     }
 
