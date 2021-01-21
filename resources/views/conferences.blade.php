@@ -70,12 +70,12 @@
                             <td>{{ $conference->data }}</td>
                         </div>
                         @if($conference->data>now())
-                        <a href="inscricao/{{$conference->id}}">
-                            <button type="button" class="btn btn-light">Inscrever-me</button>
-                        </a>
+                            <a href="inscricao/{{$conference->id}}">
+                                <button type="button" class="btn btn-light">Inscrever-me</button>
+                            </a>
                         @else
                             <a href="inscricao/{{$conference->id}}">
-                                <button type="button" disabled class="btn btn-light">Ja realizada</button>
+                                <button type="button" disabled class="btn btn-light">Já Realizada</button>
                             </a>
                         @endif
                     </div>
@@ -83,13 +83,7 @@
                     <hr/>
                 @endforeach
                 {{ $conferences->links() }}
-
-
             </div>
-
-
         </div>
-
-
     </x-slot>
 </x-app-layout>

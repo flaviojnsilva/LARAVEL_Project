@@ -1,16 +1,19 @@
 @include('components.head')
+
 <body>
 <header>
     @include('components.nav')
     <br>
     <br>
+    @if(session('message'))
+        <div class="alert alert-success" role="alert">
+            {{session('message')}} <a href="{{ url('/admin_conferences') }}" class="alert-link">&nbspVerifique todas as
+                conferências</a>
+        </div>
+    @endif
     <h2><br>Criar Nova Conferência</h2><br>
 </header>
-@if(session('message'))
-    <div class="alert alert-primary" role="alert">
-        {{session('message')}} <a href="{{ url('/admin_conferences') }}" class="alert-link">Verifique todas as conferencias</a>
-    </div>
-@endif
+
 <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
