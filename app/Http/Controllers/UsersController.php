@@ -32,7 +32,6 @@ class UsersController extends Controller
 
     public function admin_conferences()
     {
-
         return view('admin_conferences', [
             'conferences' => DB::table('conferences')->paginate(5)
         ]);
@@ -40,7 +39,6 @@ class UsersController extends Controller
 
     public function admin()
     {
-
         return view('admin', [
             'users' => DB::table('users')->paginate(5)
         ]);
@@ -91,7 +89,7 @@ class UsersController extends Controller
      * @param int $id
      * @return RedirectResponse
      */
-    public function destroy(int $id)
+    public function destroy($id)
     {
         User::destroy($id);
         return redirect('admin/');
@@ -99,7 +97,9 @@ class UsersController extends Controller
 
     public function updateAdmin($id)
     {
+        // todas as informações do user na BD
         $users = User::findOrFail($id);
+
         $users->admin = '1';
         $users->save();
         return redirect('admin/');
@@ -107,9 +107,10 @@ class UsersController extends Controller
 
     public function inscricao($id)
     {
-        //b
+        //todas as informações da conf na BD (lotação é necessária para comparar com os inscritos)
         $conference = conferences::findOrFail($id);
 
+        //id do utilizador autenticado
         $userId = Auth::user()->id;
 
         $lotacao = $conference->lotacao;
@@ -166,17 +167,14 @@ class UsersController extends Controller
             ->select('conferences.*')
             ->get();
 
-
         return view('userConference', [
             'conference' => $conference
         ]);
-
     }
 
     public
     function showConferences()
     {
-
         return view('conferences', [
             'conferences' => DB::table('conferences')->paginate(5)
         ]);

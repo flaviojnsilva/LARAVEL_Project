@@ -38,20 +38,14 @@ Route::get('/conf', [PagesController::class, 'conf']);
 Route::get('send-email-pdf', [PDFController::class, 'index']);
 
 Route::get('/admin', [UsersController::class, 'admin'])->name('admin');
+Route::get('/admin/{id}', [UsersController::class, 'destroy']);
 Route::get('/admin_conferences', [UsersController::class, 'admin_conferences']);
-
-Route::get('/profile/{id}', [UsersController::class, 'showUser']);
-
-Route::get('/userConference', [UsersController::class, 'showConference']);
 Route::get('/conferences', [UsersController::class, 'showConferences']);
-
-
+Route::get('/userConference', [UsersController::class, 'showConference']);
+Route::get('/profile/{id}', [UsersController::class, 'showUser']);
 Route::get('/updateUser/{id}', [UsersController::class, 'updateUser']);
 Route::get('/updateAdmin/{id}', [UsersController::class, 'updateAdmin']);
-
-Route::get('/inscricao/{id} ', [UsersController::class, 'inscricao']);
-
-Route::get('/admin/{id}', [UsersController::class, 'destroy']);
+Route::get('/inscricao/{id}', [UsersController::class, 'inscricao']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -17,7 +17,7 @@ class CreateConferencesTable extends Migration
         Schema::create('conferences', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('descricao',2000);
+            $table->string('descricao', 2000);
             $table->string('local');
             $table->integer('lotacao');
             $table->integer('inscritos')->default(0);
@@ -25,7 +25,6 @@ class CreateConferencesTable extends Migration
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.

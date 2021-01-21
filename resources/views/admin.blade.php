@@ -26,6 +26,7 @@
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Perfil</th>
+                    <th>Opções</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,7 +49,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="profile/{{$user->id}}">Ver Perfil</a>
-                                    <a class="dropdown-item" href="">Editar Perfil</a>
+                                    <a class="dropdown-item" href="{{ url('/unavailable')}}">Editar Perfil</a>
                                     <a class="dropdown-item" href="admin/{{$user->id}}">Eliminar Perfil</a>
                                     @if($user->admin=='1')
                                         <a class="dropdown-item" href="updateUser/{{$user->id}}">Tornar Utilizador Normal</a>
