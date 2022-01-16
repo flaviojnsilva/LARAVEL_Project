@@ -26,9 +26,6 @@ class PDFController extends Controller
                 ->subject($data["title"])
                 ->attachData($pdf->output(), "registoConf.pdf");
         });
-
-        //dd('Verifique a sua caixa de correio, foi-lhe enviada uma mensagem!');
-
         return redirect(RouteServiceProvider::DASHBOARD);
     }
 }
