@@ -14,7 +14,9 @@
             <a class="nav-link" href="{{ url('/admin') }}" class="nav-link">
                 <button type="button" class="btn btn-outline-secondary">Utilizadores</button>
             </a>
-            <a class="nav-link" href="{{ url('/admin_conferences') }}" class="nav-link"><button type="button" class="btn btn-outline-secondary">Conferências</button></a>
+            <a class="nav-link" href="{{ url('/admin_conferences') }}" class="nav-link">
+                <button type="button" class="btn btn-outline-secondary">Conferências</button>
+            </a>
         </div>
     </nav>
 
@@ -52,9 +54,11 @@
                                     <a class="dropdown-item" href="{{ url('/unavailable')}}">Editar Perfil</a>
                                     <a class="dropdown-item" href="admin/{{$user->id}}">Eliminar Perfil</a>
                                     @if($user->admin=='1')
-                                        <a class="dropdown-item" href="updateUser/{{$user->id}}">Tornar Utilizador Normal</a>
+                                        <a class="dropdown-item" href="updateUser/{{$user->id}}">Tornar Utilizador
+                                            Normal</a>
                                     @else
-                                        <a class="dropdown-item" href="updateAdmin/{{$user->id}}">Tornar Administrador</a>
+                                        <a class="dropdown-item" href="updateAdmin/{{$user->id}}">Tornar
+                                            Administrador</a>
                                     @endif
                                 </div>
                             </div>
@@ -72,6 +76,9 @@
 @include('components.footer');
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>

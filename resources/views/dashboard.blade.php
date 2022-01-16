@@ -2,13 +2,16 @@
     <x-slot name="header">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
               id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+                integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+                integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
         <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
 
         @if(session('message'))
             <div class="alert alert-primary" role="alert">
-                {{session('message')}} <a href="{{ url('/admin_conferences') }}" class="alert-link">Verifique todas as conferencias</a>
+                {{session('message')}} <a href="{{ url('/admin_conferences') }}" class="alert-link">Verifique todas as
+                    conferencias</a>
             </div>
         @endif
         <div class="container">
