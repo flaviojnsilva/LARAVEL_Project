@@ -47,14 +47,14 @@
 
         <div class="form-group input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fas fa-calendar-alt"></i></span>
+                <span class="input-group-text"> <em class="fas fa-calendar-alt"></em></span>
             </div>
             &nbsp 8 de Janeiro, às 9:00
         </div>
 
         <div class="form-group input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+                <span class="input-group-text"> <em class="fas fa-map-marker-alt"></em></span>
             </div>
             &nbsp Casa da Juventude de Sintra
         </div>

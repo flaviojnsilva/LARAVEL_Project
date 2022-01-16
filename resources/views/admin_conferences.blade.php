@@ -22,6 +22,7 @@
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <table class="table table-hover">
+                <caption>admin</caption>
                 <tr>
                     <th id="id">ID</th>
                     <th id="nome">Nome</th>
