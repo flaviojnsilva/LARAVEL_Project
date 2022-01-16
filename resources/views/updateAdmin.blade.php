@@ -24,10 +24,10 @@
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <table class="table table-hover">
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Perfil</th>
+                    <th id="id">ID</th>
+                    <th id="nome">Nome</th>
+                    <th id="email">E-mail</th>
+                    <th id="perfil">Perfil</th>
                 </tr>
                 </thead>
                 <tbody>
