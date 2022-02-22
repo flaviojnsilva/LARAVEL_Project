@@ -2,9 +2,9 @@
 
 ## Laravel Academic Project
 
-● Web Application, developed with Laravel and named “Plataforma de Conferências – Ciência e Sociedade”<br>
+🟢 Web Application developed with Laravel and named “Plataforma de Conferências – Ciência e Sociedade”<br>
 
-● In this project, we learned how to use some tools:
+⚪️ In this project, we learned how to use some tools:
 
 - **[Laravel 8](https://laravel.com)**
 - **[MailTrap](https://mailtrap.io)**
@@ -15,3 +15,8 @@
 - **[PHP Unity](https://www.phpunity.com)**
 - **CSS**
 - **CI/CD**
+
+⚫ Developed by:
+
+- Flávio Silva nº26097
+- André Nogueira nº37370
