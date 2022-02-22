@@ -4,6 +4,8 @@
 
 🟢 Web Application developed with Laravel and named “Plataforma de Conferências – Ciência e Sociedade”<br>
 
+<p align="center"><a><img src="https://i.ibb.co/d5qgn15/Captura-de-ecr-2022-02-22-s-22-50-09.png" width="600"></a></p>
+
 ⚪️ In this project, we learned how to use some tools:
 
 - **[Laravel 8](https://laravel.com)**
@@ -15,8 +17,3 @@
 - **[PHP Unity](https://www.phpunity.com)**
 - **CSS**
 - **CI/CD**
-
-⚫ Developed by:
-
-- Flávio Silva nº26097
-- André Nogueira nº37370
